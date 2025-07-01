@@ -4,7 +4,7 @@ import { Router } from "express";
 import { upload } from "../middleware/multer.js";
 const Userrouter = express.Router();
 
-Userrouter.route("getall").post(allUser);
+Userrouter.route("/getall").post(allUser);
 Userrouter.route("/register").post(upload.single("avatar"), register);
 Userrouter.route("/login").post(login);
 
