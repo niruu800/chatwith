@@ -1,6 +1,18 @@
 import uploadImage from "../middleware/cloudinary.js";
 import { User } from "../model/user.modal.js";
 
+export const allUser = async (req, res) => {
+  try {
+    const user = await User.find().select("-password");
+    res.status(200).json({
+      status: "success",
+      data: user,
+    });
+  } catch {
+    res.status(500).json({ message: "getting faild" });
+  }
+};
+
 export const register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
