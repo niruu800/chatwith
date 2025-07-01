@@ -27,6 +27,9 @@ app.use(
     credentials: true,
   })
 );
+app.get("/", (req, res) => {
+  res.send("🚀 Chat backend is working fine on Render!");
+});
 
 app.use("/api/v1/user", Userrouter);
 app.use("/api/v1/message", messageRouter);
